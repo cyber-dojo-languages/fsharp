@@ -1,5 +1,6 @@
 FROM  cyberdojofoundation/ubuntu-build-essential:17.04
 LABEL maintainer=jon@jaggersoft.com
 
-RUN apt-get install --yes mono-devel fsharp
+RUN apt-get install --yes mono-devel
+RUN apt-get install --yes fsharp
 
