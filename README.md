@@ -1,4 +1,5 @@
-# fsharp 4.0
+# fsharp
 
-![Build Status](https://travis-ci.org/cyber-dojo-languages/fsharp-4.0.svg?branch=master)
+![Build Status](https://travis-ci.org/cyber-dojo-languages/fsharp.svg?branch=master)
 
+Version=4.0
