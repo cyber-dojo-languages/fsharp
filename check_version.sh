@@ -1,8 +1,13 @@
 #!/bin/bash -Eeu
 
+readonly REGEX="image_name\": \"(.*)\""
+readonly JSON=`cat docker/image_name.json`
+[[ ${JSON} =~ ${REGEX} ]]
+readonly IMAGE_NAME="${BASH_REMATCH[1]}"
+
 readonly MY_DIR="$( cd "$( dirname "${0}" )" && pwd )"
-readonly EXPECTED=$(cat ${MY_DIR}/README.md | grep Version | cut -d'=' -f2 | cut -d']' -f1)
-readonly ACTUAL=$(docker run --rm -it cyberdojofoundation/fsharp sh -c 'fsharpc --help | head -1')
+readonly EXPECTED=4.0
+readonly ACTUAL=$(docker run --rm -it ${IMAGE_NAME} sh -c 'fsharpc --help | head -1')
 
 if echo "${ACTUAL}" | grep -q "${EXPECTED}"; then
   echo "VERSION CONFIRMED as ${EXPECTED}"
